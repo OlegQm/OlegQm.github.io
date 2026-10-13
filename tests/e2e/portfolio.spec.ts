@@ -85,13 +85,13 @@ test('theme works when local storage is unavailable', async ({ page }) => {
 
 test('genuine STU gallery supports keyboard changes, dismissal and focus restoration', async ({ page }) => {
   await page.goto('/projects/stu-genai-chatbot/');
-  const trigger = page.getByRole('link', { name: 'Enlarge: STU chatbot sign-in interface — desktop.' });
+  const trigger = page.getByRole('link', { name: 'Enlarge: Desktop sign-in.' });
   await trigger.click();
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   await expect(dialog.locator('[data-counter]')).toHaveText('1 / 2');
   await page.keyboard.press('ArrowRight');
-  await expect(dialog.locator('[data-caption]')).toHaveText('STU chatbot sign-in interface — mobile.');
+  await expect(dialog.locator('[data-caption]')).toHaveText('Mobile sign-in.');
   await expect(dialog.locator('img')).toHaveAttribute('alt', /on mobile/);
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();

@@ -8,11 +8,11 @@ export interface GalleryImage { image: ImageMetadata; alt: string; caption: stri
 
 export const galleries: Record<string, GalleryImage[]> = {
   'ai-robotics-manipulator': [
-    { image: robotField, alt: 'Purple robotic manipulator on a work surface during an outdoor field test', caption: 'Field testing of the object-recognition manipulator.' },
-    { image: robotOutdoor, alt: 'Robotic arm set up outside for a physical test', caption: 'A second view of the manipulator during outdoor testing.' },
+    { image: robotField, alt: 'Purple robotic manipulator on a work surface during an outdoor field test', caption: 'Outdoor field test.' },
+    { image: robotOutdoor, alt: 'Robotic arm set up outside for a physical test', caption: 'Outdoor test, second view.' },
   ],
   'stu-genai-chatbot': [
-    { image: stuDesktop, alt: 'STU chatbot sign-in page on desktop, with empty username and password fields', caption: 'STU chatbot sign-in interface — desktop.' },
-    { image: stuMobile, alt: 'STU chatbot sign-in page on mobile, with empty username and password fields', caption: 'STU chatbot sign-in interface — mobile.' },
+    { image: stuDesktop, alt: 'STU chatbot sign-in page on desktop, with empty username and password fields', caption: 'Desktop sign-in.' },
+    { image: stuMobile, alt: 'STU chatbot sign-in page on mobile, with empty username and password fields', caption: 'Mobile sign-in.' },
   ],
 };

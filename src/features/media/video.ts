@@ -16,9 +16,12 @@ class ClickToLoadVideo extends HTMLElement {
       frame.allow = 'encrypted-media; picture-in-picture; fullscreen';
       frame.allowFullscreen = true;
       frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      status.textContent = 'Loading video. If the player is unavailable, use the YouTube link below.';
-      frame.addEventListener('load', () => { status.textContent = 'Video loaded. If playback is unavailable, use the YouTube link below.'; });
-      frame.addEventListener('error', () => { status.textContent = 'The video could not load. You can watch it using the YouTube link below.'; });
+      status.textContent = 'Loading video…';
+      frame.addEventListener('load', () => { status.textContent = 'Video ready.'; });
+      frame.addEventListener('error', () => {
+        status.textContent = 'Video unavailable. Watch on YouTube below.';
+        status.classList.remove('sr-only');
+      });
       poster.hidden = true;
       player.append(frame);
       this.dataset.loaded = 'true';
