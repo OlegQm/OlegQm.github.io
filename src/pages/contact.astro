@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../content/profile';
+import Icon from '../components/ui/Icon.astro';
+---
+<BaseLayout title="Contact" description="Get in touch with Oleh Savchenko about GenAI and machine learning opportunities in Slovakia and Europe, hybrid or remote.">
+  <section class="container page-hero contact-hero"><span class="eyebrow">Start a conversation</span><h1>Let's build<br /><em>something useful.</em></h1><p class="lead">Have a role or a project in mind? I'd be glad to talk about GenAI, data and the work we could do together.</p><a class="contact-email" href={`mailto:${profile.email}`}>olegqm<wbr />@gmail.com <Icon name="external" size={38} /></a></section>
+  <section class="container contact-options" aria-label="Ways to connect"><a class="contact-option" href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — professional background (opens in a new tab)"><span class="eyebrow">01 / Professional background</span><div><h2>LinkedIn</h2><Icon name="external" size={28} /></div><p>Experience, skills and professional connections.</p></a><a class="contact-option" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub — profile (opens in a new tab)"><span class="eyebrow">02 / Developer profile</span><div><h2>GitHub</h2><Icon name="external" size={28} /></div><p>Find me on GitHub as olegqm.</p></a></section>
+  <section class="container contact-availability"><div><span class="eyebrow">Based in</span><h2>Bratislava,<br />Slovakia<span class="accent-dot">.</span></h2></div><div><span class="eyebrow">Open to opportunities</span><p>GenAI Engineer & ML Engineer</p><p class="muted">Mid-level roles · Slovakia & Europe<br />Hybrid or remote</p></div></section>
+</BaseLayout>

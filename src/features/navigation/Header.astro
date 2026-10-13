@@ -1,0 +1,21 @@
+---
+import Icon from '../../components/ui/Icon.astro';
+const path = Astro.url.pathname;
+const links = [{ href: '/', label: 'Home' }, { href: '/projects/', label: 'Projects' }, { href: '/about/', label: 'About' }, { href: '/contact/', label: 'Contact' }];
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="/" aria-label="Oleh Savchenko — Home"><span class="monogram" aria-hidden="true">os<span>.</span></span><span class="wordmark-name">Oleh Savchenko<span>GenAI & Data</span></span></a>
+    <div class="header-actions">
+      <button class="icon-button menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle><Icon name="menu" class="menu-icon-open" /><Icon name="close" class="menu-icon-close" /></button>
+      <nav id="primary-navigation" class="site-nav" aria-label="Main navigation" data-open="false">
+        {links.map(link => <a href={link.href} aria-current={(link.href === '/' ? path === '/' : path.startsWith(link.href)) ? 'page' : undefined}>{link.label}</a>)}
+      </nav>
+      <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle><Icon name="moon" class="theme-icon-moon" /><Icon name="sun" class="theme-icon-sun" /></button>
+    </div>
+  </div>
+</header>
+<script>
+  import './navigation';
+  import '../theme/theme';
+</script>

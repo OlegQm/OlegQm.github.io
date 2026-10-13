@@ -1,0 +1,102 @@
+# Oleh Savchenko — GenAI & Data
+
+An English-language engineering portfolio for [olegqm.github.io](https://olegqm.github.io/), built with **Astro, TypeScript and CSS**. It presents GenAI, data analytics and AI/robotics projects, professional experience, education and public contact information.
+
+## Development
+
+Requires Node.js **22.12+** and npm.
+
+```sh
+npm ci
+npm run dev
+```
+
+Open **http://127.0.0.1:4321/**. If Astro starts a background server, manage it from the project directory:
+
+```sh
+npm exec astro dev status
+npm exec astro dev logs
+npm exec astro dev stop
+```
+
+Check and preview the static build:
+
+```sh
+npm run check
+npm run build
+npm run preview -- --port 4324
+```
+
+The generated `dist/` directory is a complete static website. Node.js is needed for development and builds, not for serving the published site.
+
+## Project structure
+
+```text
+src/
+  pages/                  Routes, project page generator, sitemap and 404
+  layouts/                Shared page shell and case-study layout
+  features/
+    navigation/           Header, footer and responsive menu
+    theme/                System preference and persisted theme choice
+    projects/             Collection queries, cards and visual covers
+    media/                Image galleries and click-to-load video
+  components/ui/          Shared interface elements
+  content/
+    profile.ts            Profile, public contacts and experience
+    projects/*.md         Typed Markdown case studies
+  content.config.ts       Content validation schema
+  styles/                 Design tokens, themes and responsive layouts
+  assets/                 Project imagery and social-image source
+public/                   Favicon, social preview and font licenses
+tests/
+  e2e/                    Browser tests against the production output
+  fixtures/               Static server used only by tests
+.github/workflows/        Verification and GitHub Pages deployment
+```
+
+Pages: Home, Projects, four dedicated case studies, About, Contact and 404. Project filenames determine their routes. Edit Markdown for case-study text, `profile.ts` for experience/contact information, and `galleries.ts` for image captions and gallery entries. Content metadata is validated during builds.
+
+## Design and interactions
+
+- Responsive layouts reflow from 320px, with touch-sized controls and keyboard navigation.
+- Light and dark themes follow system preference until a manual choice is made. Theme switching still works when browser storage is unavailable.
+- Image viewers use native dialogs with keyboard navigation, Escape dismissal and focus restoration.
+- Navigation and image links remain usable without JavaScript; reduced-motion preferences are respected.
+- Fonts are served locally. Manrope and Newsreader license notices are included in `public/font-licenses/`.
+- Images are generated as responsive WebP assets. The site includes canonical URLs, social metadata, a sitemap and a useful 404 page.
+- The YouTube player loads only after a click, using `youtube-nocookie.com` and `autoplay=0`. A direct video link remains available. No remote thumbnail, preconnect or video iframe is loaded beforehand.
+
+## Project media
+
+The manipulator photographs show genuine outdoor prototype testing. The linked video was reviewed in part and is presented as a project demonstration, without numerical performance claims.
+
+The STU gallery shows the genuine **sign-in interface**, on desktop and mobile, with empty credential fields. Authenticated chat screenshots are not included. STU work is described as a team contribution; LLM Mesh is presented as agent development and experimentation.
+
+Case studies contain public descriptions and media, rather than the featured applications' source code or internal architecture. The current machine learning course is labelled **in progress**. A resume download can be added when a public PDF is available.
+
+## Testing
+
+```sh
+npx playwright install chromium
+npm test
+```
+
+`npm test` builds the site and runs **15 browser tests** against `dist/` on loopback port 4323. Coverage includes direct routes, local links, canonical metadata, 320/390/768/1440px reflow, keyboard navigation, themes, blocked storage, galleries, opt-in video, contact information, no-JavaScript navigation, light/dark WCAG A/AA scans and 404 behaviour. Automated accessibility checks complement visual and keyboard review.
+
+To test an existing build without rebuilding:
+
+```sh
+npx playwright test
+```
+
+An existing compatible Chromium binary can be selected through `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`. Otherwise Playwright uses its installed browser. No machine-specific browser path is hardcoded. Test traces and screenshots are ignored by Git.
+
+## GitHub Pages
+
+The repository is **OlegQm/OlegQm.github.io**, with canonical site URL **https://olegqm.github.io/** and root-relative routes.
+
+The [deployment workflow](.github/workflows/deploy.yml) runs on pushes to `main` and can also be started manually. It installs locked dependencies on Node.js 22, checks types/content, installs Playwright Chromium, builds once and runs the production-output browser tests. Only a successful build/test job uploads `dist/`; a separate deployment job publishes that verified artifact to GitHub Pages.
+
+Official GitHub Actions are pinned to commit hashes. The build job has read-only repository access; Pages/OIDC write permissions belong only to the deployment job. In repository settings, the Pages publishing source should be **GitHub Actions**.
+
+Latest local verification: **13 October 2026** — type/content check clean, static build successful, **15/15 browser tests passed**. Deployment results are available in the repository's Actions history.
