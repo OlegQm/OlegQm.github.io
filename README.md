@@ -70,7 +70,7 @@ Pages: Home, Projects, four dedicated case studies, About, Contact and 404. Proj
 
 The manipulator photographs show genuine outdoor prototype testing. The linked video was reviewed in part and is presented as a project demonstration, without numerical performance claims.
 
-The STU gallery shows the genuine **sign-in interface**, on desktop and mobile, with empty credential fields. Authenticated chat screenshots are not included. STU work is described as a team contribution; LLM Mesh is presented as agent development and experimentation.
+The STU gallery contains genuine browser captures of the **Vue chat and admin interfaces**, launched in isolated local copies. Sessions, conversations, campus directions, dashboard metrics, health status and document lists use synthetic fixtures; live identity providers, LLM/RAG services, databases and external integrations are disconnected. Every capture is marked DEMO, and the case explains this limitation. No project source or demo harness is included in this repository. STU work is described as a team contribution; LLM Mesh is presented as agent development and experimentation.
 
 Case studies contain public descriptions and media, rather than the featured applications' source code or internal architecture. The current machine learning course is labelled **in progress**. A resume download can be added when a public PDF is available.
 

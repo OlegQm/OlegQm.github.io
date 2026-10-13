@@ -85,14 +85,25 @@ test('theme works when local storage is unavailable', async ({ page }) => {
 
 test('genuine STU gallery supports keyboard changes, dismissal and focus restoration', async ({ page }) => {
   await page.goto('/projects/stu-genai-chatbot/');
-  const trigger = page.getByRole('link', { name: 'Enlarge: Desktop sign-in.' });
+  const trigger = page.getByRole('link', { name: 'Enlarge: Student support · Demo.' });
   await trigger.click();
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator('[data-counter]')).toHaveText('1 / 2');
+  await expect(dialog.locator('[data-counter]')).toHaveText('1 / 5');
   await page.keyboard.press('ArrowRight');
-  await expect(dialog.locator('[data-caption]')).toHaveText('Mobile sign-in.');
+  await expect(dialog.locator('[data-caption]')).toHaveText('Campus navigation · Demo.');
+  await expect(dialog.locator('img')).toHaveAttribute('alt', /fictional campus directions/);
+  await page.keyboard.press('ArrowRight');
+  await expect(dialog.locator('[data-caption]')).toHaveText('Mobile navigation · Demo.');
   await expect(dialog.locator('img')).toHaveAttribute('alt', /on mobile/);
+  await page.keyboard.press('ArrowRight');
+  await expect(dialog.locator('[data-caption]')).toHaveText('Admin dashboard · Demo.');
+  await expect(dialog.locator('img')).toHaveAttribute('alt', /synthetic feedback statistics/);
+  await page.keyboard.press('ArrowRight');
+  await expect(dialog.locator('[data-counter]')).toHaveText('5 / 5');
+  await expect(dialog.locator('[data-caption]')).toHaveText('Knowledge base · Demo.');
+  await expect(dialog.locator('img')).toHaveAttribute('alt', /fictional document names/);
+  await expect(page.getByText(/Answers, campus routes, metrics and documents are fixtures/)).toBeAttached();
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();
   await expect(trigger).toBeFocused();

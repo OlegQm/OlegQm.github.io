@@ -17,3 +17,5 @@ I contributed directly to the chatbot as part of the STU AI team.
 - Backend development with Python and FastAPI.
 - Vue frontend and user-facing interactions.
 - Language-model tooling and data integration.
+
+The screenshots show the real Vue UI running locally with synthetic data. Answers, campus routes, metrics and documents are fixtures; live services are disabled.
