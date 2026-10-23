@@ -13,3 +13,5 @@ focus: ["AI agents", "Sandbox environments", "Edge computing"]
 ## My contribution
 
 Developed agents for Raspberry Pi, using Docker sandbox environments and Hermes during development and experimentation.
+
+An anonymized public version of this AI workspace is available on [GitHub](https://github.com/OlegQm/agent-workspace).
