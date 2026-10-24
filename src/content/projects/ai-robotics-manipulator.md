@@ -20,4 +20,4 @@ focus: ["Computer vision", "Edge AI", "Robotics"]
 
 ## Physical testing
 
-The physical prototype was tested outdoors. The video includes field testing and a search-mode sequence.
+The video shows an outdoor test and a search-mode sequence.

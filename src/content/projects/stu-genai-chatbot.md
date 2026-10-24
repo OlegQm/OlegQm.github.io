@@ -12,10 +12,10 @@ focus: ["GenAI applications", "Backend development", "Frontend development"]
 ---
 ## My contribution
 
-The project is a chatbot for the FEI STU faculty. Expanding it across STU remains a university plan. I worked on it as part of the STU AI team from September 2024 to August 2026.
+The chatbot is for the FEI STU faculty. The university plans to expand it across STU. I worked on it as part of the STU AI team from September 2024 to August 2026.
 
 - Built backend features with Python and FastAPI.
 - Worked on the Vue interface and student-facing interactions.
 - Integrated language-model tools and data sources.
 
-The screenshots show the real Vue UI running locally with synthetic data. Answers, campus routes, metrics and documents are fixtures; live services are disabled.
+These screenshots show the Vue interface with synthetic conversations, campus routes and documents. Live services are disabled.

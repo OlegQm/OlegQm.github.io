@@ -1,4 +1,4 @@
-# Oleh Savchenko — GenAI & Data
+# Oleh Savchenko - GenAI & Data
 
 An English-language engineering portfolio for [olegqm.github.io](https://olegqm.github.io/), built with **Astro, TypeScript and CSS**. It presents GenAI and AI/robotics projects, data analytics experience, education and public contact information.
 

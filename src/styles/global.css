@@ -103,7 +103,7 @@ button { border-radius: 0; }
 [data-theme='dark'] .theme-icon-sun { display: block; }
 .menu-icon-close { display: none; }
 
-/* Home — a real project photograph anchors the editorial hero. */
+/* Home - a real project photograph anchors the editorial hero. */
 .home-hero { display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 6rem); padding-block: clamp(3rem, 5vw, 4.5rem); }
 .hero-intro { display: flex; align-items: center; gap: .6rem; color: var(--accent); margin-bottom: 1.7rem; }
 .hero-copy h1 { font-size: clamp(3.5rem, 7.4vw, 6.8rem); }
@@ -242,6 +242,8 @@ html:not(.js) .video-play { display: none; }
 
 /* About and contact. */
 .about-hero h1 { font-size: clamp(3.2rem, 7.6vw, 6.7rem); }
+.about-hero .page-hero-bottom { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
+.about-hero .about-intro > p + p { max-width: 34rem; color: var(--muted); font-size: .95rem; }
 .about-section { padding-block: 1rem 2.5rem; }
 .experience-row { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; padding-block: 2.4rem; border-top: 1px solid var(--line); }
 .experience-row > div:first-child > .eyebrow { color: var(--accent); }
@@ -351,6 +353,7 @@ html:not(.js) .video-play { display: none; }
   .page-hero { padding-top: 3rem; padding-bottom: 2.5rem; }
   .page-hero h1 { font-size: clamp(3.2rem, 11vw, 5.7rem); }
   .page-hero-bottom { display: block; margin-top: 1.5rem; }
+  .about-hero .page-hero-bottom { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .case-title-top { display: block; margin-top: 2rem; }
   .case-title-top .eyebrow:last-child { margin-top: .4rem; }
   .case-hero h1 { font-size: clamp(2.55rem, 9.5vw, 5rem); margin-top: .9rem; }

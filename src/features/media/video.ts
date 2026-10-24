@@ -11,7 +11,7 @@ class ClickToLoadVideo extends HTMLElement {
       const id = this.dataset.videoId;
       if (!id || !/^[a-zA-Z0-9_-]{11}$/.test(id)) return;
       const frame = document.createElement('iframe');
-      frame.title = 'Robotic arm real-life testing — Oleh Savchenko';
+      frame.title = 'Robotic arm real-life testing - Oleh Savchenko';
       frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=0&controls=1&rel=0`;
       frame.allow = 'encrypted-media; picture-in-picture; fullscreen';
       frame.allowFullscreen = true;
