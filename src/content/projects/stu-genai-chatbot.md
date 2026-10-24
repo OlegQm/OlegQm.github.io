@@ -19,5 +19,3 @@ I contributed directly to the chatbot as part of the STU AI team.
 - Language-model tooling and data integration.
 
 The screenshots show the real Vue UI running locally with synthetic data. Answers, campus routes, metrics and documents are fixtures; live services are disabled.
-
-Cover photo: Ra1n, [FEI STU 2010](https://commons.wikimedia.org/wiki/File:FEI_STU_2010.JPG), via Wikimedia Commons, [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The image is cropped to fit the project card and cover.

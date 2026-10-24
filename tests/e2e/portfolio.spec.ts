@@ -110,18 +110,27 @@ test('genuine STU gallery supports keyboard changes, dismissal and focus restora
   await expect(page.locator('body')).not.toHaveClass(/dialog-open/);
 });
 
-test('FEI chatbot uses an attributed photograph for its cover and card', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+test('project interfaces appear on the matching cards and detail covers without cropping away the UI', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/projects/stu-genai-chatbot/');
-  const cover = page.locator('.case-cover .visual-genai img');
-  await expect(cover).toHaveAttribute('alt', /FEI STU building/);
-  await expect.poll(() => cover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await expect(page.getByText('Photo: Ra1n · CC BY 3.0')).toBeVisible();
-  await expect(page.getByRole('link', { name: 'CC BY 3.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/3.0/');
+  const stuCover = page.locator('.case-cover .visual-genai img');
+  await expect(stuCover).toHaveAttribute('alt', /STU chatbot interface/);
+  await expect.poll(() => stuCover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(stuCover.locator('xpath=..')).toHaveCSS('aspect-ratio', '1.5 / 1');
   await page.goto('/projects/');
-  const cardPhoto = page.locator('a[href="/projects/stu-genai-chatbot/"] .visual-genai img');
-  await expect(cardPhoto).toHaveAttribute('alt', /FEI STU building/);
-  await expect.poll(() => cardPhoto.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  const stuCard = page.locator('a[href="/projects/stu-genai-chatbot/"] .visual-genai img');
+  await expect(stuCard).toHaveAttribute('alt', /STU chatbot interface/);
+  await expect.poll(() => stuCard.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  const workspaceCard = page.locator('a[href="/projects/llm-mesh-agents/"] .visual-agents img');
+  await expect(workspaceCard).toHaveAttribute('alt', /Agent workspace interface/);
+  await expect.poll(() => workspaceCard.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await page.goto('/projects/llm-mesh-agents/');
+  const workspaceCover = page.locator('.case-cover .visual-agents img');
+  await expect(workspaceCover).toHaveAttribute('alt', /Agent workspace interface/);
+  await expect.poll(() => workspaceCover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(workspaceCover.locator('xpath=..')).toHaveCSS('aspect-ratio', '1.5 / 1');
+  await expect(page.getByText(/Assistant replies are demo fixtures/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Workspace demo' })).toBeVisible();
 });
 
 test('workspace walkthrough gallery labels distinct synthetic desktop and mobile states', async ({ page }) => {

@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import robot from '../../assets/manipulator-field-test.png';
-import feiBuilding from '../../assets/fei-stu-building.jpg';
+import stuChat from '../../assets/stu-demo-chat-desktop.png';
+import workspaceChat from '../../assets/workspace-demo-desktop-chat.png';
 interface Props { kind: 'robotics' | 'genai' | 'data' | 'agents'; priority?: boolean; }
 const { kind, priority = false } = Astro.props;
 ---
@@ -9,9 +10,8 @@ const { kind, priority = false } = Astro.props;
   {kind === 'robotics' ? <>
     <Image src={robot} alt="Purple robotic manipulator during an outdoor field test" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
   </> : kind === 'genai' ? <>
-    <Image src={feiBuilding} alt="Exterior of the FEI STU building in Bratislava" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
-    <span class="photo-credit">Photo: Ra1n · CC BY 3.0</span>
+    <Image src={stuChat} alt="STU chatbot interface showing a synthetic student orientation conversation" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
   </>
   : kind === 'data' ? <div class="artwork artwork-data" aria-hidden="true"><div class="data-lines">{[3, 5, 2, 7, 4, 6, 3, 8, 5, 7, 4, 6].map((height, index) => <span style={`--bar:${height};--index:${index}`}></span>)}</div><div class="artwork-baseline"></div></div>
-  : <div class="artwork artwork-agents" aria-hidden="true"><div class="agent-orbits"><span></span><span></span><span></span><i></i><i></i><b>ai</b></div></div>}
+  : <Image src={workspaceChat} alt="Agent workspace interface showing a synthetic conversation beside example project files" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />}
 </div>
