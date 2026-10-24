@@ -19,9 +19,9 @@ export const experience = [
   {
     company: 'Slovak University of Technology',
     role: 'Full-stack GenAI Developer',
-    period: 'Sep 2024 — Present',
+    period: 'Sep 2024 — Aug 2026',
     detail: 'Part-time · Bratislava, Slovakia',
-    description: 'Develop the FEI STU faculty chatbot across its Vue frontend and Python/FastAPI backend, integrating live LLM responses. The university plans to expand it across STU.',
+    description: 'Built features for the FEI STU faculty chatbot across its Vue frontend and Python/FastAPI backend, including live LLM responses. Expansion across STU remains a university plan.',
     tags: ['FastAPI', 'Vue', 'LangChain', 'LangGraph', 'LightRAG', 'FastMCP', 'GitHub Actions', 'Ansible', 'Docker'],
   },
 ] as const;

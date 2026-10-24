@@ -2,7 +2,7 @@
 title: "STU GenAI Chatbot"
 shortTitle: "A faculty chatbot for FEI STU."
 category: "GenAI / Full-stack development"
-summary: "A chatbot for the FEI STU faculty, with plans to expand it across the university."
+summary: "A chatbot for the FEI STU faculty, with expansion across the university planned."
 role: "GenAI full-stack contributor"
 context: "Slovak University of Technology"
 order: 2
@@ -12,7 +12,7 @@ focus: ["GenAI applications", "Backend development", "Frontend development"]
 ---
 ## My contribution
 
-The chatbot is for the FEI STU faculty. The current plan is to expand it across the university. I contributed to the project as part of the STU AI team.
+The project is a chatbot for the FEI STU faculty. Expanding it across STU remains a university plan. I worked on it as part of the STU AI team from September 2024 to August 2026.
 
 - Built backend features with Python and FastAPI.
 - Worked on the Vue interface and student-facing interactions.

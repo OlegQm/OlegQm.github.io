@@ -163,13 +163,6 @@ button { border-radius: 0; }
 .contact-banner h2 { font-size: clamp(2.2rem, 3.5vw, 3.2rem); }
 .contact-banner > .button { flex-shrink: 0; }
 
-/* Lightweight data artwork used by the analytics project card. */
-.artwork { width: 100%; height: 100%; position: relative; overflow: hidden; }
-.artwork-data { background: #e0e6cc; color: #273f35; }
-.data-lines { display: flex; align-items: end; gap: 2%; position: absolute; left: 14%; right: 14%; bottom: 27%; height: 48%; }
-.data-lines > span { display: block; width: 6.5%; height: calc(var(--bar) * 11%); background: #366d56; border-radius: 1px 1px 0 0; opacity: calc(.3 + var(--index) * .05); }
-.artwork-baseline { position: absolute; left: 10%; right: 10%; height: 1px; background: #64806b55; bottom: 27%; }
-
 /* Shared page headers and long-form project layout. */
 .page-hero { padding-top: clamp(2.5rem, 4.5vw, 4.5rem); padding-bottom: 2.5rem; }
 .page-hero > .eyebrow { margin-bottom: 1.6rem; color: var(--accent); }
@@ -270,18 +263,17 @@ html:not(.js) .video-play { display: none; }
 .learning-card .tag-list { margin-top: 1.3rem; }
 .course-detail { margin-top: .9rem; font-size: .85rem; color: var(--muted); }
 .contact-options { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; padding-block: 1rem 4rem; }
-.contact-email-group { display: grid; grid-template-columns: minmax(0,1fr) 52px; gap: .65rem; }
+.contact-email-group { display: flex; align-items: stretch; min-width: 0; }
 .contact-option { padding: 2rem; border: 1px solid var(--line); background: var(--surface); }
 .contact-option > div { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .contact-option h2 { font-size: 2.8rem; }
 .contact-option:hover, .contact-copy-button:hover { background: var(--surface-raised); }
-.contact-email-link { display: flex; align-items: center; justify-content: space-between; gap: .6rem; min-width: 0; padding: 1.35rem; }
+.contact-email-link { display: flex; flex: 1 1 auto; align-items: center; justify-content: space-between; gap: .6rem; min-width: 0; padding: 1.35rem; }
 .contact-email-link > div { display: block; min-width: 0; }
 .contact-email-link h2 { font-size: 1.6rem; }
 .contact-email-link p { margin-top: .35rem; color: var(--muted); font-size: .78rem; overflow-wrap: anywhere; }
 .contact-email-link svg { flex: 0 0 auto; }
-.contact-copy-button { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; border: 1px solid var(--line); background: var(--surface); }
-.contact-email-group > .contact-copy-button { align-self: center; }
+.contact-copy-button { display: inline-flex; flex: 0 0 52px; align-self: stretch; align-items: center; justify-content: center; min-width: 52px; min-height: 52px; border: 1px solid var(--line); border-left: 0; background: var(--surface); }
 .copy-status { grid-column: 1 / -1; min-height: 1.2rem; color: var(--muted); font-size: .75rem; }
 .copy-status:empty { display: none; }
 .article-card { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: clamp(1.4rem, 3vw, 2.5rem); border: 1px solid var(--line); background: var(--surface); }

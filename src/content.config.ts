@@ -12,7 +12,7 @@ const projects = defineCollection({
     role: z.string(),
     context: z.string(),
     order: z.number(),
-    kind: z.enum(['robotics', 'genai', 'data', 'agents']),
+    kind: z.enum(['robotics', 'genai', 'agents']),
     technologies: z.array(z.string()),
     focus: z.array(z.string()),
   }),
