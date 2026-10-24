@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import robot from '../../assets/manipulator-field-test.png';
-import stuRobot from '../../assets/stu-genai-robot-illustration.png';
+import stuRobot from '../../assets/stu-fei-bot.svg';
 import workspaceChat from '../../assets/workspace-demo-desktop-chat.png';
 interface Props { kind: 'robotics' | 'genai' | 'data' | 'agents'; priority?: boolean; }
 const { kind, priority = false } = Astro.props;
@@ -10,7 +10,7 @@ const { kind, priority = false } = Astro.props;
   {kind === 'robotics' ? <>
     <Image src={robot} alt="Purple robotic manipulator during an outdoor field test" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
   </> : kind === 'genai' ? <>
-    <Image src={stuRobot} alt="Friendly robot head illustration with an AI chat bubble, connected nodes and an open book" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
+    <img src={stuRobot.src} width={stuRobot.width} height={stuRobot.height} alt="Original FEI chatbot robot avatar from the blue interface design" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
   </>
   : kind === 'data' ? <div class="artwork artwork-data" aria-hidden="true"><div class="data-lines">{[3, 5, 2, 7, 4, 6, 3, 8, 5, 7, 4, 6].map((height, index) => <span style={`--bar:${height};--index:${index}`}></span>)}</div><div class="artwork-baseline"></div></div>
   : <Image src={workspaceChat} alt="Agent workspace interface showing a synthetic conversation beside example project files" widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 60vw" format="webp" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />}

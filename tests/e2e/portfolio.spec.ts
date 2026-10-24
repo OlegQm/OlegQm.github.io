@@ -114,16 +114,18 @@ test('project visuals use content-appropriate crops on cards and detail covers',
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/projects/stu-genai-chatbot/');
   const stuCover = page.locator('.case-cover .visual-genai img');
-  await expect(stuCover).toHaveAttribute('alt', /robot head illustration/);
+  await expect(stuCover).toHaveAttribute('alt', /Original FEI chatbot robot avatar/);
+  await expect(stuCover).toHaveAttribute('src', /stu-fei-bot/);
   await expect(stuCover).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => stuCover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await expect(stuCover.locator('xpath=..')).toHaveCSS('aspect-ratio', '1.5 / 1');
   await page.goto('/projects/');
   const stuCard = page.locator('a[href="/projects/stu-genai-chatbot/"] .visual-genai img');
-  await expect(stuCard).toHaveAttribute('alt', /robot head illustration/);
+  await expect(stuCard).toHaveAttribute('alt', /Original FEI chatbot robot avatar/);
   await expect(stuCard).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => stuCard.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   const workspaceCard = page.locator('a[href="/projects/llm-mesh-agents/"] .visual-agents img');
+  await expect(page.locator('a[href="/projects/llm-mesh-agents/"]').getByRole('heading', { name: 'Safe Agents Workspace' })).toBeVisible();
   await expect(workspaceCard).toHaveAttribute('alt', /Agent workspace interface/);
   await expect(workspaceCard).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => workspaceCard.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
@@ -133,8 +135,15 @@ test('project visuals use content-appropriate crops on cards and detail covers',
   await expect(workspaceCover).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => workspaceCover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await expect(workspaceCover.locator('xpath=..')).toHaveCSS('aspect-ratio', '1.5 / 1');
-  await expect(page.getByText(/Assistant replies are demo fixtures/)).toBeVisible();
+  await expect(page.getByText(/All conversation and document content shown here is synthetic demo data/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Workspace demo' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Safe Agents Workspace.' })).toBeVisible();
+  await expect(page.locator('.prose').getByText(/Created as a corporate AI assistant for colleagues/)).toBeVisible();
+  await expect(page.getByText(/allocates 8 GB RAM and four CPU cores per agent sandbox/)).toBeVisible();
+  await expect(page.getByText(/Raspberry Pi 4 or newer is not validated/)).toBeVisible();
+  await expect(page.getByText(/no live LLM or external integration is represented as tested/i)).toHaveCount(0);
+  await page.goto('/');
+  await expect(page.locator('a[href="/projects/llm-mesh-agents/"]').getByRole('heading', { name: 'Safe Agents Workspace' })).toBeVisible();
 });
 
 test('wide robotics photography stays framed around the manipulator at desktop and mobile widths', async ({ page }) => {
@@ -155,7 +164,8 @@ test('wide robotics photography stays framed around the manipulator at desktop a
 
 test('workspace walkthrough gallery labels distinct synthetic desktop and mobile states', async ({ page }) => {
   await page.goto('/projects/llm-mesh-agents/');
-  await expect(page.getByText(/Assistant replies are demo fixtures/)).toBeVisible();
+  await expect(page.getByText(/All conversation and document content shown here is synthetic demo data/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Safe Agents Workspace.' })).toBeVisible();
   const figures = page.locator('.gallery-grid figure');
   await expect(figures).toHaveCount(5);
   await expect(figures.nth(0)).toContainText('Desktop conversation and files · Synthetic demo.');

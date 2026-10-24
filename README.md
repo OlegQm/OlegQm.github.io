@@ -70,7 +70,7 @@ Pages: Home, Projects, four dedicated case studies, About, Contact and 404. Proj
 
 The manipulator photographs show genuine outdoor prototype testing. The linked video was reviewed in part and is presented as a project demonstration, without numerical performance claims.
 
-The STU gallery contains genuine browser captures of the **Vue chat and admin interfaces**, launched in isolated local copies. Sessions, conversations, campus directions, dashboard metrics, health status and document lists use synthetic fixtures; live identity providers, LLM/RAG services, databases and external integrations are disconnected. Every capture is marked DEMO, and the case explains this limitation. No project source or demo harness is included in this repository. STU work is described as a team contribution; LLM Mesh is presented as agent development and experimentation.
+The STU gallery contains genuine browser captures of the **Vue chat and admin interfaces**, launched in isolated local copies. Sessions, conversations, campus directions, dashboard metrics, health status and document lists use synthetic fixtures; live identity providers, LLM/RAG services, databases and external integrations are disconnected. Every capture is marked DEMO, and the case identifies its synthetic content. No project source or demo harness is included in this repository. STU work is described as a team contribution; Safe Agents Workspace is presented as a corporate assistant concept with an anonymized public version.
 
 Case studies contain public descriptions and media, rather than the featured applications' source code or internal architecture. The current machine learning course is labelled **in progress**. A resume download can be added when a public PDF is available.
 
@@ -81,7 +81,7 @@ npx playwright install chromium
 npm test
 ```
 
-`npm test` builds the site and runs **15 browser tests** against `dist/` on loopback port 4323. Coverage includes direct routes, local links, canonical metadata, 320/390/768/1440px reflow, keyboard navigation, themes, blocked storage, galleries, opt-in video, contact information, no-JavaScript navigation, light/dark WCAG A/AA scans and 404 behaviour. Automated accessibility checks complement visual and keyboard review.
+`npm test` builds the site and runs **18 browser tests** against `dist/` on loopback port 4323. Coverage includes direct routes, local links, canonical metadata, 320/390/768/1440px reflow, keyboard navigation, themes, blocked storage, galleries, opt-in video, contact information, no-JavaScript navigation, light/dark WCAG A/AA scans and 404 behaviour. Automated accessibility checks complement visual and keyboard review.
 
 To test an existing build without rebuilding:
 
@@ -99,4 +99,4 @@ The [deployment workflow](.github/workflows/deploy.yml) runs on pushes to `main`
 
 Official GitHub Actions are pinned to commit hashes. The build job has read-only repository access; Pages/OIDC write permissions belong only to the deployment job. In repository settings, the Pages publishing source should be **GitHub Actions**.
 
-Latest local verification: **13 October 2026** — type/content check clean, static build successful, **15/15 browser tests passed**. Deployment results are available in the repository's Actions history.
+Latest local verification: **24 October 2026** — type/content check clean, static build successful, **18/18 browser tests passed**. Deployment results are available in the repository's Actions history.

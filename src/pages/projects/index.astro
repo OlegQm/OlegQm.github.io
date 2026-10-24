@@ -5,7 +5,7 @@ import ContactBanner from '../../components/ui/ContactBanner.astro';
 import { getProjects } from '../../features/projects/data';
 const projects = await getProjects();
 ---
-<BaseLayout title="Projects" description="Selected projects by Oleh Savchenko: AI robotics, a university GenAI chatbot, multi-country analytics and Raspberry Pi agents.">
+<BaseLayout title="Projects" description="Selected projects by Oleh Savchenko: AI robotics, a university GenAI chatbot, multi-country analytics and Safe Agents Workspace.">
   <section class="container page-hero"><h1>Selected<br /><em>projects.</em></h1><div class="page-hero-bottom"><p class="lead">GenAI, data analytics and AI robotics.</p></div></section>
   <section class="container projects-index" aria-label="Project case studies"><div class="projects-grid">{projects.map(project => <ProjectCard project={project} />)}</div></section>
   <ContactBanner />
