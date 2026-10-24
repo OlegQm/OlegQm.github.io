@@ -110,6 +110,32 @@ test('genuine STU gallery supports keyboard changes, dismissal and focus restora
   await expect(page.locator('body')).not.toHaveClass(/dialog-open/);
 });
 
+test('FEI chatbot uses an attributed photograph for its cover and card', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/projects/stu-genai-chatbot/');
+  const cover = page.locator('.case-cover .visual-genai img');
+  await expect(cover).toHaveAttribute('alt', /FEI STU building/);
+  await expect.poll(() => cover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(page.getByText('Photo: Ra1n · CC BY 3.0')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'CC BY 3.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/3.0/');
+  await page.goto('/projects/');
+  const cardPhoto = page.locator('a[href="/projects/stu-genai-chatbot/"] .visual-genai img');
+  await expect(cardPhoto).toHaveAttribute('alt', /FEI STU building/);
+  await expect.poll(() => cardPhoto.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+});
+
+test('workspace walkthrough gallery labels distinct synthetic desktop and mobile states', async ({ page }) => {
+  await page.goto('/projects/llm-mesh-agents/');
+  await expect(page.getByText(/Assistant replies are demo fixtures/)).toBeVisible();
+  const figures = page.locator('.gallery-grid figure');
+  await expect(figures).toHaveCount(5);
+  await expect(figures.nth(0)).toContainText('Desktop conversation and files · Synthetic demo.');
+  await expect(figures.nth(1)).toContainText('Desktop spreadsheet preview · Synthetic demo.');
+  await expect(figures.nth(2)).toContainText('Mobile conversation · Synthetic demo.');
+  await expect(figures.nth(3)).toContainText('Mobile workspace files · Synthetic demo.');
+  await expect(figures.nth(4)).toContainText('Mobile document preview · Synthetic demo.');
+});
+
 test('video makes no third-party requests until activated and never autoplays', async ({ page }) => {
   const remoteRequests: string[] = [];
   await page.route('https://**/*', route => { remoteRequests.push(route.request().url()); return route.abort(); });

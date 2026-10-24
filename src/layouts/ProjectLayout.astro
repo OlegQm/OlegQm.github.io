@@ -14,7 +14,7 @@ const images = galleries[project.id] || [];
 ---
 <BaseLayout title={data.title} description={data.summary}>
   <header class="container case-hero"><a class="text-link back-link" href="/projects/"><Icon name="arrow" size={17} /> All projects</a><div class="case-title-top"><span class="eyebrow">{data.category}</span><span class="eyebrow">{data.context}</span></div><h1>{data.title}<span class="accent-dot">.</span></h1><p class="lead">{data.summary}</p><div class="case-meta"><span class="eyebrow">Role</span><p>{data.role}</p></div></header>
-  {data.kind === 'robotics' && <div class="container case-cover"><ProjectVisual kind={data.kind} priority /></div>}
+  {(data.kind === 'robotics' || data.kind === 'genai') && <div class="container case-cover"><ProjectVisual kind={data.kind} priority /></div>}
   <div class="container case-content-grid"><aside class="case-sidebar"><span class="eyebrow">Technologies</span><div class="tag-list">{data.technologies.map(technology => <span class="tag">{technology}</span>)}</div></aside><article class="prose"><slot /></article></div>
   {(images.length > 0 || data.kind === 'robotics') && <div class="container case-media"><Gallery images={images} id={project.id} title={data.kind === 'genai' ? 'Interface demo' : 'Field photos'} />{data.kind === 'robotics' && <ProjectVideo />}</div>}
   <section class="container next-project"><span class="eyebrow">Next project</span><a href={projectUrl(next.id)}><h2>{next.data.title}</h2><span class="circle-arrow"><Icon name="arrow" size={28} /></span></a></section>
