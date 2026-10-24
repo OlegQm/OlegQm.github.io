@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../features/articles/ArticleCard.astro';
+import { articles } from '../../content/articles';
+---
+<BaseLayout title="Articles" description="Articles by Oleh Savchenko on machine learning and data science.">
+  <section class="container page-hero"><h1><em>Articles</em></h1><div class="page-hero-bottom"><p class="lead">Notes on ideas and techniques I’ve been learning.</p></div></section>
+  <section class="container articles-list" aria-label="Articles">{articles.map(article => <ArticleCard article={article} />)}</section>
+</BaseLayout>

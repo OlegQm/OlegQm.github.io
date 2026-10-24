@@ -1,0 +1,9 @@
+---
+import Icon from '../../components/ui/Icon.astro';
+interface Props { article: { title: string; summary: string; url: string; source: string }; }
+const { article } = Astro.props;
+---
+<article class="article-card">
+  <div class="article-card-main"><span class="eyebrow">{article.source}</span><h2>{article.title}</h2><p>{article.summary}</p></div>
+  <a class="text-link article-link" href={article.url} target="_blank" rel="noopener noreferrer">Read on {article.source}<Icon name="external" size={18} /></a>
+</article>

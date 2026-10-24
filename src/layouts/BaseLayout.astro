@@ -5,7 +5,7 @@ import '../styles/global.css';
 import Header from '../features/navigation/Header.astro';
 import Footer from '../features/navigation/Footer.astro';
 interface Props { title: string; description?: string; noindex?: boolean; canonicalPath?: string; }
-const { title, description = 'Oleh Savchenko — GenAI applications, data analytics and AI robotics. Explore selected projects and experience.', noindex = false, canonicalPath } = Astro.props;
+const { title, description = 'Oleh Savchenko — GenAI applications, data analytics and AI robotics. Projects, experience and articles.', noindex = false, canonicalPath } = Astro.props;
 const canonical = new URL(canonicalPath || Astro.url.pathname, Astro.site);
 const pageTitle = title === 'Home' ? 'Oleh Savchenko — GenAI & Data' : `${title} — Oleh Savchenko`;
 const socialImage = new URL('/social-card.png', Astro.site);

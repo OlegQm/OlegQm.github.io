@@ -110,7 +110,6 @@ button { border-radius: 0; }
 .hero-copy h1 em { color: var(--accent); white-space: nowrap; }
 .hero-description { color: var(--muted); max-width: 27rem; font-size: 1rem; line-height: 1.85; margin-top: 1.6rem; }
 .hero-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.6rem; margin-top: 2rem; }
-.hero-location { font-size: .75rem; color: var(--muted); margin-top: 2rem; }
 .coordinate-mark { color: var(--accent); font-size: 1.25rem; font-weight: 600; }
 .hero-project { min-width: 0; position: relative; }
 .hero-image-top { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; color: var(--muted); }
@@ -162,7 +161,6 @@ button { border-radius: 0; }
 .approach-list p { color: var(--muted); font-size: .85rem; margin-top: .6rem; max-width: 30rem; }
 .contact-banner { display: flex; justify-content: space-between; gap: 2rem; align-items: center; padding-block: 3rem; border-top: 1px solid var(--line); }
 .contact-banner h2 { font-size: clamp(2.2rem, 3.5vw, 3.2rem); }
-.contact-banner p { color: var(--muted); font-size: .85rem; margin-top: .8rem; }
 .contact-banner > .button { flex-shrink: 0; }
 
 /* Lightweight data artwork used by the analytics project card. */
@@ -270,24 +268,29 @@ html:not(.js) .video-play { display: none; }
 .learning-card { background: var(--surface); }
 .learning-status { display: inline-flex; gap: .5rem; align-items: center; color: var(--accent); font-size: .65rem; font-weight: 650; }
 .learning-card .tag-list { margin-top: 1.3rem; }
-.direction-section { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1rem 4rem; padding-block: 2.5rem 3rem; border-top: 1px solid var(--line); }
-.direction-section > .eyebrow { grid-column: 1/-1; color: var(--accent); }
-.direction-section h2 { font-size: clamp(2rem, 3.4vw, 3rem); }
-.direction-section p { font-size: 1rem; }
-.contact-hero > .lead { max-width: 36rem; margin-top: 2rem; }
-.contact-email { display: inline-flex; align-items: center; gap: 2rem; font-size: clamp(1.65rem, 5vw, 4.8rem); line-height: 1.4; letter-spacing: -.05em; font-weight: 550; margin-top: 2.5rem; color: var(--accent); border-bottom: 1px solid var(--accent); flex-wrap: wrap; }
-.contact-email svg { flex: 0 0 auto; }
-.contact-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; padding-block: 1rem 4rem; }
+.course-detail { margin-top: .9rem; font-size: .85rem; color: var(--muted); }
+.contact-options { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; padding-block: 1rem 4rem; }
+.contact-email-group { display: grid; grid-template-columns: minmax(0,1fr) 52px; gap: .65rem; }
 .contact-option { padding: 2rem; border: 1px solid var(--line); background: var(--surface); }
 .contact-option > div { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .contact-option h2 { font-size: 2.8rem; }
-.contact-option .eyebrow { color: var(--muted); }
-.contact-option p { font-size: .85rem; color: var(--muted); margin-top: .8rem; }
-.contact-option:hover { background: var(--surface-raised); }
-.contact-availability { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-block: 2.5rem 3rem; border-top: 1px solid var(--line); }
-.contact-availability h2 { font-size: 2.5rem; margin-top: 1rem; }
-.contact-availability p { margin-top: 1rem; font-size: 1.1rem; }
-.contact-availability .muted { font-size: .85rem; margin-top: .6rem; }
+.contact-option:hover, .contact-copy-button:hover { background: var(--surface-raised); }
+.contact-email-link { display: flex; align-items: center; justify-content: space-between; gap: .6rem; min-width: 0; padding: 1.35rem; }
+.contact-email-link > div { display: block; min-width: 0; }
+.contact-email-link h2 { font-size: 1.6rem; }
+.contact-email-link p { margin-top: .35rem; color: var(--muted); font-size: .78rem; overflow-wrap: anywhere; }
+.contact-email-link svg { flex: 0 0 auto; }
+.contact-copy-button { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; border: 1px solid var(--line); background: var(--surface); }
+.contact-email-group > .contact-copy-button { align-self: center; }
+.copy-status { grid-column: 1 / -1; min-height: 1.2rem; color: var(--muted); font-size: .75rem; }
+.copy-status:empty { display: none; }
+.article-card { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: clamp(1.4rem, 3vw, 2.5rem); border: 1px solid var(--line); background: var(--surface); }
+.article-card-main { max-width: 54rem; }
+.article-card .eyebrow { color: var(--accent); margin-bottom: 1rem; }
+.article-card h2 { max-width: 48rem; font-size: clamp(1.6rem, 3vw, 2.6rem); letter-spacing: -.04em; }
+.article-card p { max-width: 48rem; margin-top: 1rem; color: var(--muted); }
+.article-link { flex: 0 0 auto; }
+.articles-list { padding-bottom: 4rem; }
 .not-found { padding-block: 6rem; }
 .not-found .eyebrow { color: var(--accent); margin-bottom: 2rem; }
 .not-found p { margin-top: 2rem; }
@@ -309,7 +312,6 @@ html:not(.js) .video-play { display: none; }
   .home-hero { gap: 2rem; }
   .hero-copy h1 { font-size: clamp(3.25rem, 7.5vw, 5.5rem); }
   .hero-buttons { gap: .5rem 1rem; }
-  .hero-location { margin-top: 1.8rem; }
   .hero-project .project-visual { aspect-ratio: 1.5; }
   .page-hero-bottom > .eyebrow { display: none; }
   .case-content-grid { grid-template-columns: 190px minmax(0,1fr); gap: 3rem; }
@@ -337,7 +339,6 @@ html:not(.js) .video-play { display: none; }
   .home-hero { grid-template-columns: minmax(0,1fr); gap: 2.7rem; padding-top: 3rem; }
   .hero-copy h1 { font-size: clamp(3.2rem, 11.5vw, 5.8rem); }
   .hero-description { max-width: 32rem; font-size: .95rem; }
-  .hero-location { margin-top: 1.6rem; }
   .hero-project { padding-top: 0; }
   .hero-project .project-visual { aspect-ratio: 1.3; }
   .hero-project .project-visual img { object-position: 60% 50%; }
@@ -355,7 +356,6 @@ html:not(.js) .video-play { display: none; }
   .project-card p { font-size: .82rem; }
   .contact-banner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .approach-grid > div > .text-link { margin-top: 1.4rem; }
-  .contact-banner p { max-width: 32rem; }
   .page-hero { padding-top: 3rem; padding-bottom: 2.5rem; }
   .page-hero h1 { font-size: clamp(3.2rem, 11vw, 5.7rem); }
   .page-hero-bottom { display: block; margin-top: 1.5rem; }
@@ -382,7 +382,7 @@ html:not(.js) .video-play { display: none; }
   .next-project { padding-block: 2.5rem 3.5rem; }
   .next-project > a { gap: 1rem; }
   .next-project .circle-arrow { width: 44px; height: 44px; flex-basis: 44px; }
-  .experience-row, .education-section, .direction-section { grid-template-columns: minmax(0,1fr); gap: 1.8rem; }
+  .experience-row, .education-section { grid-template-columns: minmax(0,1fr); gap: 1.8rem; }
   .experience-row { gap: 1.2rem; padding-block: 1.8rem; }
   .experience-row > div:first-child { display: flex; align-items: center; gap: 1rem; }
   .experience-period { margin-top: 0; font-size: .75rem; }
@@ -390,16 +390,14 @@ html:not(.js) .video-play { display: none; }
   .education-section { padding-top: 2rem; padding-bottom: 3rem; }
   .education-card { padding: 1.4rem; }
   .education-card h3 { font-size: 1.35rem; }
-  .direction-section { gap: .8rem; }
-  .direction-section > .eyebrow { grid-column: auto; }
-  .direction-section .lead { margin-top: .6rem; }
-  .contact-email { gap: .7rem; font-size: clamp(1.4rem, 6vw, 2.8rem); margin-top: 2rem; }
-  .contact-email svg { width: 24px; height: 24px; }
-  .contact-options, .contact-availability { grid-template-columns: minmax(0,1fr); gap: 1rem; }
+  .contact-options { grid-template-columns: minmax(0,1fr); gap: 1rem; }
   .contact-option { padding: 1.5rem; }
   .contact-option > div { margin-top: 0; }
   .contact-option h2 { font-size: 2.2rem; }
-  .contact-availability { gap: 2rem; padding-bottom: 3rem; }
+  .contact-email-link { padding: 1rem; }
+  .contact-email-link h2 { font-size: 1.7rem; }
+  .article-card { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
+  .article-link { min-height: 44px; }
   .footer-top { display: block; padding-block: 2rem; }
   .footer-top > .text-link { margin-top: 1rem; }
   .footer-bottom { display: block; padding-top: 1rem; }
@@ -413,7 +411,6 @@ html:not(.js) .video-play { display: none; }
   .hero-copy h1 { font-size: 3.2rem; }
   .hero-intro { font-size: .57rem; }
   .hero-buttons { display: grid; justify-items: start; }
-  .hero-location { font-size: .7rem; }
   .hero-note { text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -48,13 +48,10 @@ src/
   styles/                 Design tokens, themes and responsive layouts
   assets/                 Project imagery and social-image source
 public/                   Favicon, social preview and font licenses
-tests/
-  e2e/                    Browser tests against the production output
-  fixtures/               Static server used only by tests
 .github/workflows/        Verification and GitHub Pages deployment
 ```
 
-Pages: Home, Projects, four dedicated case studies, About, Contact and 404. Project filenames determine their routes. Edit Markdown for case-study text, `profile.ts` for experience/contact information, and `galleries.ts` for image captions and gallery entries. Content metadata is validated during builds.
+Pages: Home, Projects, Articles, four dedicated case studies, About, Contact and 404. Project filenames determine their routes. Edit Markdown for case-study text, `profile.ts` for experience/contact information, `articles.ts` for article links, and `galleries.ts` for image captions and gallery entries. Content metadata is validated during checks and builds.
 
 ## Design and interactions
 
@@ -74,29 +71,21 @@ The STU gallery contains genuine browser captures of the **Vue chat and admin in
 
 Case studies contain public descriptions and media, rather than the featured applications' source code or internal architecture. The current machine learning course is labelled **in progress**. A resume download can be added when a public PDF is available.
 
-## Testing
+## Verification
 
 ```sh
-npx playwright install chromium
-npm test
+npm run check
+npm run build
 ```
 
-`npm test` builds the site and runs **18 browser tests** against `dist/` on loopback port 4323. Coverage includes direct routes, local links, canonical metadata, 320/390/768/1440px reflow, keyboard navigation, themes, blocked storage, galleries, opt-in video, contact information, no-JavaScript navigation, light/dark WCAG A/AA scans and 404 behaviour. Automated accessibility checks complement visual and keyboard review.
-
-To test an existing build without rebuilding:
-
-```sh
-npx playwright test
-```
-
-An existing compatible Chromium binary can be selected through `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`. Otherwise Playwright uses its installed browser. No machine-specific browser path is hardcoded. Test traces and screenshots are ignored by Git.
+`npm run check` validates Astro components and content. `npm run build` generates the static site in `dist/`.
 
 ## GitHub Pages
 
 The repository is **OlegQm/OlegQm.github.io**, with canonical site URL **https://olegqm.github.io/** and root-relative routes.
 
-The [deployment workflow](.github/workflows/deploy.yml) runs on pushes to `main` and can also be started manually. It installs locked dependencies on Node.js 22, checks types/content, installs Playwright Chromium, builds once and runs the production-output browser tests. Only a successful build/test job uploads `dist/`; a separate deployment job publishes that verified artifact to GitHub Pages.
+The [deployment workflow](.github/workflows/deploy.yml) runs on pushes to `main` and can also be started manually. It installs locked dependencies on Node.js 22, checks types/content, builds the site and uploads `dist/`; a separate deployment job publishes the artifact to GitHub Pages.
 
 Official GitHub Actions are pinned to commit hashes. The build job has read-only repository access; Pages/OIDC write permissions belong only to the deployment job. In repository settings, the Pages publishing source should be **GitHub Actions**.
 
-Latest local verification: **24 October 2026** — type/content check clean, static build successful, **18/18 browser tests passed**. Deployment results are available in the repository's Actions history.
+Local verification is `npm run check` followed by `npm run build`. Deployment results are available in the repository's Actions history.

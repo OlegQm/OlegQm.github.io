@@ -9,9 +9,9 @@ const projects = await getProjects();
 ---
 <BaseLayout title="Home">
   <section class="home-hero container" aria-labelledby="hero-title">
-    <div class="hero-copy"><h1 id="hero-title">GenAI apps,<br />data tools and<br /><em>robotics.</em></h1><p class="hero-description">I build GenAI applications and data tools, and work on computer vision and robotics.</p><div class="hero-buttons"><a href="/projects/" class="button button-dark">View projects <Icon name="arrow" /></a><a href="/about/" class="text-link">About me <Icon name="arrow" size={18} /></a></div><p class="hero-location">Bratislava · Open to roles in Europe</p></div>
+    <div class="hero-copy"><h1 id="hero-title">GenAI apps,<br />data tools and<br /><em>robotics.</em></h1><p class="hero-description">I build GenAI applications and data tools, and work on computer vision and robotics.</p><div class="hero-buttons"><a href="/projects/" class="button button-dark">View projects <Icon name="arrow" /></a><a href="/about/" class="text-link">About me <Icon name="arrow" size={18} /></a></div></div>
     <div class="hero-project"><a href="/projects/ai-robotics-manipulator/" class="hero-image-link" aria-label="View AI and Robotics Manipulator"><ProjectVisual kind="robotics" priority /><div class="hero-image-caption"><p>AI & Robotics Manipulator</p><Icon name="arrow" size={24} /></div></a></div>
   </section>
-  <section class="container selected-work section-space" aria-labelledby="selected-heading"><div class="section-heading"><h2 id="selected-heading">Selected <em>projects.</em></h2><a class="text-link" href="/projects/">All projects <Icon name="arrow" /></a></div><div class="projects-grid">{projects.map(project => <ProjectCard project={project} />)}</div></section>
+  <section class="container projects-preview section-space" aria-labelledby="projects-heading"><div class="section-heading"><h2 id="projects-heading">My <em>Projects</em></h2><a class="text-link" href="/projects/">All projects <Icon name="arrow" /></a></div><div class="projects-grid">{projects.map(project => <ProjectCard project={project} />)}</div></section>
   <ContactBanner />
 </BaseLayout>
