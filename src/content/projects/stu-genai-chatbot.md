@@ -18,4 +18,4 @@ The chatbot is for the FEI STU faculty. The university plans to expand it across
 - Worked on the Vue interface and student-facing interactions.
 - Integrated language-model tools and data sources.
 
-These screenshots show the Vue interface with synthetic conversations, campus routes and documents. Live services are disabled.
+These screenshots show the Vue interface with synthetic conversations, campus routes and documents.
