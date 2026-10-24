@@ -110,27 +110,47 @@ test('genuine STU gallery supports keyboard changes, dismissal and focus restora
   await expect(page.locator('body')).not.toHaveClass(/dialog-open/);
 });
 
-test('project interfaces appear on the matching cards and detail covers without cropping away the UI', async ({ page }) => {
+test('project visuals use content-appropriate crops on cards and detail covers', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/projects/stu-genai-chatbot/');
   const stuCover = page.locator('.case-cover .visual-genai img');
-  await expect(stuCover).toHaveAttribute('alt', /STU chatbot interface/);
+  await expect(stuCover).toHaveAttribute('alt', /robot head illustration/);
+  await expect(stuCover).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => stuCover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await expect(stuCover.locator('xpath=..')).toHaveCSS('aspect-ratio', '1.5 / 1');
   await page.goto('/projects/');
   const stuCard = page.locator('a[href="/projects/stu-genai-chatbot/"] .visual-genai img');
-  await expect(stuCard).toHaveAttribute('alt', /STU chatbot interface/);
+  await expect(stuCard).toHaveAttribute('alt', /robot head illustration/);
+  await expect(stuCard).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => stuCard.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   const workspaceCard = page.locator('a[href="/projects/llm-mesh-agents/"] .visual-agents img');
   await expect(workspaceCard).toHaveAttribute('alt', /Agent workspace interface/);
+  await expect(workspaceCard).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => workspaceCard.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await page.goto('/projects/llm-mesh-agents/');
   const workspaceCover = page.locator('.case-cover .visual-agents img');
   await expect(workspaceCover).toHaveAttribute('alt', /Agent workspace interface/);
+  await expect(workspaceCover).toHaveCSS('object-fit', 'contain');
   await expect.poll(() => workspaceCover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await expect(workspaceCover.locator('xpath=..')).toHaveCSS('aspect-ratio', '1.5 / 1');
   await expect(page.getByText(/Assistant replies are demo fixtures/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Workspace demo' })).toBeVisible();
+});
+
+test('wide robotics photography stays framed around the manipulator at desktop and mobile widths', async ({ page }) => {
+  for (const viewport of [{ width: 1440, height: 1000, ratio: '1.5 / 1' }, { width: 390, height: 844, ratio: '1.3 / 1' }]) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto('/');
+    const hero = page.locator('.hero-project .visual-robotics');
+    const image = hero.locator('img');
+    await expect.poll(() => image.evaluate(item => (item as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(hero).toHaveCSS('aspect-ratio', viewport.ratio);
+    await expect(image).toHaveCSS('object-position', '60% 50%');
+    await page.goto('/projects/ai-robotics-manipulator/');
+    const cover = page.locator('.case-cover .visual-robotics img');
+    await expect.poll(() => cover.evaluate(item => (item as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(cover).toHaveCSS('object-fit', 'cover');
+  }
 });
 
 test('workspace walkthrough gallery labels distinct synthetic desktop and mobile states', async ({ page }) => {
