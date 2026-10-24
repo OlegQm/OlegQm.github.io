@@ -1,8 +1,8 @@
 ---
 title: "Multi-country Data Analytics"
-shortTitle: "Many sources. A clearer picture."
+shortTitle: "One shared source for reporting across countries."
 category: "Data / Analytics"
-summary: "A shared data source across several countries, maintained and extended for analytics users."
+summary: "I maintain a shared data source and connect it to Metabase for reporting across several countries."
 role: "Data Analyst"
 context: "BOXYLAND.EU"
 order: 3
@@ -12,9 +12,7 @@ focus: ["Data integration", "Analytics", "Usability"]
 ---
 ## My contribution
 
-- Maintain and develop the shared data source.
-- Add new sources through Meltano integrations.
-- Make analytics in Metabase easier to use.
+I maintain the shared source, add new connections through Meltano and improve Metabase reports for the people who use them.
 
 ## The result
 

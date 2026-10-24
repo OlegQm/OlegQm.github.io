@@ -15,7 +15,7 @@ export const experience = [
     role: 'Data Analyst',
     period: 'Jul 2025 — Present',
     detail: 'Part-time Jul 2025–Jul 2026 · Full-time since Jul 2026',
-    description: 'Maintain a shared data source across several countries, add integrations and improve analytics usability.',
+    description: 'Maintain a shared data source across several countries, add new integrations and make Metabase reporting easier to use.',
     tags: ['Meltano', 'Metabase', 'PostgreSQL', 'Python'],
   },
   {
@@ -23,7 +23,7 @@ export const experience = [
     role: 'GenAI Full-stack Engineer',
     period: 'Sep 2024 — Aug 2026',
     detail: 'Part-time · Bratislava, Slovakia',
-    description: 'Contributed to the university GenAI chatbot across backend and frontend development.',
+    description: 'Contributed to the FEI STU faculty chatbot across frontend and backend. The university plans to expand it across STU.',
     tags: ['FastAPI', 'Vue', 'LangChain', 'Docker'],
   },
 ] as const;

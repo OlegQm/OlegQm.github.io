@@ -1,8 +1,8 @@
 ---
 title: "Safe Agents Workspace"
-shortTitle: "A self-hosted AI workspace for colleagues."
+shortTitle: "A self-hosted assistant for colleagues."
 category: "AI agents / Self-hosted workspace"
-summary: "A corporate AI assistant for colleagues, combining chat, documents and isolated Hermes agents."
+summary: "A corporate assistant that brings chat and project files together with Hermes agents in Docker Sandboxes."
 role: "Developer"
 context: "Corporate AI assistant"
 order: 4
@@ -12,11 +12,11 @@ focus: ["Chat and documents", "Isolated agent runtime", "Self-hosting"]
 ---
 ## My contribution
 
-Created as a corporate AI assistant for colleagues, this workspace brings chat and project documents into one self-hosted application. Hermes agents handle requests inside Docker Sandboxes, which provide isolated microVMs; each deployment defines which workspace files are mounted and what network access is allowed.
+I built this workspace as a corporate AI assistant for colleagues. It brings chat and project files together, while Hermes agents run in Docker Sandboxes: isolated microVMs with configurable file mounts and network access.
 
 The public, anonymized version contains one generic assistant profile and synthetic demo conversations. It is available on [GitHub](https://github.com/OlegQm/agent-workspace).
 
-Self-hosting requires a supported 64-bit Linux host with KVM enabled for local Docker Sandboxes. The documented deployment targets Ubuntu 24.04 on x86_64 and allocates 8 GB RAM and four CPU cores per agent sandbox, in addition to the web application and operating system. Raspberry Pi 4 or newer is not validated by this deployment: an ARM64 setup also needs working KVM and a compatible Hermes sandbox image. Use a compatible runtime host for agents unless those ARM requirements are verified.
+The documented setup targets Ubuntu 24.04 on x86_64. Local Docker Sandboxes need KVM hardware virtualization and an account allowed to use it (`kvm` group); a virtual-machine host also needs nested virtualization. This setup gives each agent sandbox 8 GB of RAM and four CPU cores, in addition to the web application and operating system. Raspberry Pi 4 and newer are not validated: an ARM64 host also needs working KVM and a compatible Hermes sandbox image. Until those are verified, run agents on the documented x86_64 host.
 
 ## Interface walkthrough
 

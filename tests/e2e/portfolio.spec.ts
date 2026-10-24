@@ -138,12 +138,21 @@ test('project visuals use content-appropriate crops on cards and detail covers',
   await expect(page.getByText(/All conversation and document content shown here is synthetic demo data/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Workspace demo' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Safe Agents Workspace.' })).toBeVisible();
-  await expect(page.locator('.prose').getByText(/Created as a corporate AI assistant for colleagues/)).toBeVisible();
-  await expect(page.getByText(/allocates 8 GB RAM and four CPU cores per agent sandbox/)).toBeVisible();
-  await expect(page.getByText(/Raspberry Pi 4 or newer is not validated/)).toBeVisible();
+  await expect(page.locator('.prose').getByText(/I built this workspace as a corporate AI assistant for colleagues/)).toBeVisible();
+  await expect(page.getByText(/This setup gives each agent sandbox 8 GB of RAM and four CPU cores/)).toBeVisible();
+  await expect(page.getByText(/KVM hardware virtualization and an account allowed to use it/)).toBeVisible();
+  await expect(page.getByText(/Raspberry Pi 4 and newer are not validated/)).toBeVisible();
   await expect(page.getByText(/no live LLM or external integration is represented as tested/i)).toHaveCount(0);
   await page.goto('/');
   await expect(page.locator('a[href="/projects/llm-mesh-agents/"]').getByRole('heading', { name: 'Safe Agents Workspace' })).toBeVisible();
+});
+
+test('FEI chatbot copy distinguishes its current faculty scope from the university expansion plan', async ({ page }) => {
+  await page.goto('/projects/stu-genai-chatbot/');
+  await expect(page.locator('h1')).toHaveText('STU GenAI Chatbot.');
+  await expect(page.locator('.lead')).toContainText('for the FEI STU faculty');
+  await expect(page.locator('.prose')).toContainText('The current plan is to expand it across the university.');
+  await expect(page.locator('.prose')).not.toContainText('expanded across the university');
 });
 
 test('wide robotics photography stays framed around the manipulator at desktop and mobile widths', async ({ page }) => {

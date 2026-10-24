@@ -1,8 +1,8 @@
 ---
 title: "AI & Robotics Manipulator"
-shortTitle: "AI meets the physical world."
+shortTitle: "Object tracking and servo control on a physical prototype."
 category: "Computer vision / Robotics"
-summary: "Object recognition, mobile control and robotic aiming on edge hardware."
+summary: "A Raspberry Pi prototype that tracks objects and controls a three-servo manipulator."
 role: "Independent developer"
 context: "Personal project"
 order: 1
