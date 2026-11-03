@@ -16,7 +16,7 @@ I built this workspace as a corporate AI assistant for colleagues. It brings cha
 
 The public, anonymized version contains one generic assistant profile and synthetic demo conversations. It is available on [GitHub](https://github.com/OlegQm/agent-workspace).
 
-The documented setup targets Ubuntu 24.04 on x86_64. Local Docker Sandboxes need KVM hardware virtualization and an account allowed to use it (`kvm` group); a virtual-machine host also needs nested virtualization. This setup gives each agent sandbox 8 GB of RAM and four CPU cores, in addition to the web application and operating system. Raspberry Pi 4 and newer are not validated: an ARM64 host also needs working KVM and a compatible Hermes sandbox image. Until those are verified, run agents on the documented x86_64 host.
+The documented setup targets Ubuntu 24.04 on x86_64. Local Docker Sandboxes need KVM hardware virtualization and an account allowed to use it (`kvm` group); a virtual-machine host also needs nested virtualization. This setup gives each agent sandbox 8 GB of RAM and four CPU cores, in addition to the web application and operating system. The workspace has also been tested on Raspberry Pi 4, where agents run successfully. ARM64 hosts require working KVM and a compatible Hermes sandbox image.
 
 ## Interface walkthrough
 
